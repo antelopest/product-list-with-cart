@@ -3,6 +3,8 @@ export default class Component extends HTMLElement {
     super();
   }
 
+  static selector = '';
+
   static template = '';
   static templateUrl = '';
 
@@ -42,5 +44,9 @@ export default class Component extends HTMLElement {
     }
 
     return '';
+  }
+
+  #getSelector() {
+    return this.constructor.selector;
   }
 }
