@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  entry: './src/index.js',
+  entry: './src/main.js',
   output: {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -71,8 +71,7 @@ export default {
     port: 3000,
     open: true,
     hot: true,
-    liveReload: true,
-    watchFiles: ['src/**/*']
+    liveReload: true
   },
   resolve: {
     extensions: ['.js']
