@@ -5,6 +5,10 @@ export default class Container {
   }
 
   register(serviceName, ServiceClass, singleton = true) {
+    if (this.services.has(serviceName)) {
+      throw new Error(`Service ${serviceName} already registered`);
+    }
+
     this.services.set(serviceName, {
       ServiceClass,
       singleton

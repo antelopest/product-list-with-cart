@@ -3,7 +3,7 @@ export default class Component extends HTMLElement {
     super();
   }
 
-  static selector = '';
+  static tag = '';
 
   static template = '';
   static templateUrl = '';
