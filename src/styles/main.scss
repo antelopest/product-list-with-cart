@@ -1,9 +1,27 @@
+@use './variables/variables' as *;
+
+@use 'sass:map';
+
+@use './mixins/mixins';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
+:is(html, body) {
+  font-family: map.get($font, font-family), sans-serif;
+  font-size: map.get($font, font-size);
+  font-optical-sizing: map.get($font, font-optical-sizing);
+  font-weight: map.get($font, font-weight-400);
+
+  background-color: map.get($color, rose100);
+  color: map.get($color, rose900);
+}
+
+.products {
+}
+
+.cart {
 }

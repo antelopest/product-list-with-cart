@@ -8,9 +8,16 @@ export default class ProductsComponent extends Component {
   async connectedCallback() {
     await this.productsService.initCompleted;
 
+    this.innerHTML = `<header class="header">
+      <h1 header__title>Desserts</h1>
+    </header>`;
     for (const product of this.productsService.products) {
       this.innerHTML += `<product-card-component product-id="${product.id}"></product-card-component>`;
     }
+  }
+
+  async render() {
+    //
   }
 
   // /* Hook call when delete element in DOM */

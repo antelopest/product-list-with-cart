@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../../variables/variables' as *;
+
+@mixin container($breakpoint) {
+  $width: map.get($container, $breakpoint);
+
+  @media (min-width: $width) {
+    max-width: $width;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include container(xs);
+  @include container(sm);
+  @include container(md);
+  @include container(lg);
+  @include container(xl);
+  @include container(xxl);
+}
