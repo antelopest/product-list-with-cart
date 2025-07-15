@@ -74,7 +74,14 @@ export default {
     liveReload: true
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      '@config': path.resolve(__dirname, 'src/config'),
+      '@services': path.resolve(__dirname, 'src/core/service'),
+      '@components': path.resolve(__dirname, 'src/core/component'),
+      '@modules': path.resolve(__dirname, 'src/modules'),
+      '@container': path.resolve(__dirname, 'src/core/container')
+    }
   },
   mode: 'development'
 };
