@@ -78,9 +78,10 @@ export default {
     alias: {
       '@config': path.resolve(__dirname, 'src/config'),
       '@services': path.resolve(__dirname, 'src/core/service'),
-      '@components': path.resolve(__dirname, 'src/core/component'),
-      '@modules': path.resolve(__dirname, 'src/modules'),
-      '@container': path.resolve(__dirname, 'src/core/container')
+      '@component': path.resolve(__dirname, 'src/core/component'),
+      '@module': path.resolve(__dirname, 'src/core/module'),
+      '@container': path.resolve(__dirname, 'src/core/container'),
+      '@orderModule': path.resolve(__dirname, 'src/modules/order')
     }
   },
   mode: 'development'

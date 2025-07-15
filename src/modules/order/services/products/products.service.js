@@ -1,5 +1,5 @@
-import Service from '../../../../core/service/Service.js';
-import { API_CONFIG } from '../../../../config/config.js';
+import Service from '@services/Service.js';
+import { API_CONFIG } from '@config/config.js';
 
 export default class ProductsService extends Service {
   static serviceName = 'ProductsService';
