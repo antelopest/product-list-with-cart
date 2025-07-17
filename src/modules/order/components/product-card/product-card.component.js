@@ -4,9 +4,12 @@ import { container } from '@orderModule/order.module.js';
 
 export default class ProductCardComponent extends Component {
   static tag = 'product-card-component';
+  static classes = ['product-card'];
 
   async connectedCallback() {
-    this.innerHTML = `<h3>Product card</h3>`;
+    this.innerHTML = `<h3>Product</h3>`;
+
+    this.classList.add(...ProductCardComponent.classes);
   }
 
   // /* Hook call when delete element in DOM */

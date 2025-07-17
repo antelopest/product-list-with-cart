@@ -20,8 +20,143 @@
   color: map.get($color, rose900);
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: map.get($container, lg)) {
+    flex-direction: row;
+  }
+}
+
 .products {
+  .header__title {
+    padding: 1rem 0;
+  }
 }
 
 .cart {
+  padding: 1rem 0;
+  border-radius: 15px;
+  background-color: map.get($color, rose50);
+
+  .header {
+    padding: 1rem 1rem;
+    &__title {
+      color: map.get($color, red);
+    }
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid map.get($color, rose100);
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    &__title {
+      font-weight: map.get($font, font-weight-600);
+      font-size: 1.2rem;
+    }
+
+    &__order {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &__action {
+      button {
+        @include mixins.centring();
+
+        outline: none;
+        border-radius: 50%;
+        background-color: map.get($color, rose50);
+        border: 2px solid map.get($color, rose300);
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+
+        &:hover {
+          border: 2px solid map.get($color, rose500);
+
+          svg {
+            fill: map.get($color, rose500);
+          }
+
+          path {
+            fill: map.get($color, rose500);
+          }
+        }
+      }
+    }
+
+    &__count {
+      color: map.get($color, red);
+      font-weight: map.get($font, font-weight-600);
+      font-size: 1.2rem;
+    }
+
+    &__price {
+      color: map.get($color, rose300);
+      font-weight: map.get($font, font-weight-400);
+      font-size: 1.2rem;
+    }
+
+    &__total {
+      color: map.get($color, rose400);
+      font-weight: map.get($font, font-weight-600);
+      font-size: 1.2rem;
+    }
+  }
+
+  .footer {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer__description {
+      font-size: 1rem;
+      font-weight: map.get($font, font-weight-400);
+      color: map.get($color, rose900);
+    }
+
+    .footer__total {
+      font-size: 1.8rem;
+      font-weight: map.get($font, font-weight-700);
+      color: map.get($color, rose900);
+    }
+  }
+}
+
+.svg-loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

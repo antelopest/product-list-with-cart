@@ -8,20 +8,34 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 export default {
   entry: './src/main.js',
   output: {
-    filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
-    // publicPath: '/product-list-with-cart/'
+    filename: 'bundle.[contenthash].js',
+    clean: true,
+    publicPath: isDev ? '/' : '/product-list-with-cart/'
+  },
+  mode: isDev ? 'development' : 'production',
+  devtool: isDev ? 'eval-source-map' : false,
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dict'),
+      watch: true
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    watchFiles: ['./src/**/', './src/index.html']
   },
   module: {
     rules: [
       {
         test: /\.scss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -47,12 +61,13 @@ export default {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      inject: true
     }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: '404.html'
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: './src/index.html',
+    //   filename: '404.html'
+    // }),
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css'
     }),
@@ -66,13 +81,6 @@ export default {
       ]
     })
   ],
-  devServer: {
-    static: './dist',
-    port: 3000,
-    open: true,
-    hot: true,
-    liveReload: true
-  },
   resolve: {
     extensions: ['.js'],
     alias: {
@@ -83,6 +91,5 @@ export default {
       '@container': path.resolve(__dirname, 'src/core/container'),
       '@orderModule': path.resolve(__dirname, 'src/modules/order')
     }
-  },
-  mode: 'development'
+  }
 };
