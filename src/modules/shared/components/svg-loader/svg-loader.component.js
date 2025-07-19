@@ -1,12 +1,12 @@
 import Component from '@component/Component.js';
 
-export default class SvgLoaderComponent extends Component {
+export default class SvgIcon extends Component {
   static tag = 'svg-loader-component';
-  static classes = ['svg-loader'];
+  // static classes = ['svg-loader'];
 
-  addClasses() {
-    this.classList.add(...SvgLoaderComponent.classes);
-  }
+  // addClasses() {
+  //   this.classList.add(...SvgLoaderComponent.classes);
+  // }
 
   async init() {
     const src = this.getAttribute('src');
