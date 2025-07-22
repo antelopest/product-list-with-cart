@@ -1,3 +1,3 @@
-import { Container } from '@container';
+import Container from '@container/Container.js';
 
-export const AppDIContainer = new Container();
+export const container = new Container();

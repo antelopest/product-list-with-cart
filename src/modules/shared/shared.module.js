@@ -1,9 +1,11 @@
-import Container from '@container/Container.js';
-
 import Module from '@module/Module.js';
 
-export const OrderModule = new Module({
+import { container } from '@appDIContainer';
+
+const SharedModule = new Module({
   services: [],
   components: [],
   container
 });
+
+SharedModule.register();
