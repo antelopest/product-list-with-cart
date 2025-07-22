@@ -4,33 +4,65 @@ export default class Container {
     this.singletons = new Map();
   }
 
-  register(serviceName, ServiceClass, singleton = true) {
+  register(
+    serviceName,
+    factory,
+    options = {
+      singleton: true,
+      dependencies: [],
+      params: []
+    }
+  ) {
+    if (typeof serviceName !== 'string' || !serviceName) {
+      throw new Error('Service name must be a non-empty string');
+    }
+
+    if (typeof factory !== 'function') {
+      throw new Error('Factory must be a function or class');
+    }
+
     if (this.services.has(serviceName)) {
       throw new Error(`Service ${serviceName} already registered`);
     }
 
     this.services.set(serviceName, {
-      ServiceClass,
-      singleton
+      factory,
+      singleton: !!options.singleton,
+      dependencies: options.dependencies || [],
+      params: options.params || []
     });
   }
 
-  get(serviceName) {
+  async get(serviceName) {
     if (!this.services.has(serviceName)) {
       throw new Error(`Service ${serviceName} not registered`);
     }
 
-    const { ServiceClass, singleton } = this.services.get(serviceName);
+    const { factory, singleton, dependencies, params } =
+      this.services.get(serviceName);
+
+    const resolvedDependencies = await Promise.all(
+      dependencies.map(async (dependency) => await this.get(dependency))
+    );
+
+    const args = [...resolvedDependencies, ...params];
 
     if (singleton) {
       if (!this.singletons.has(serviceName)) {
-        this.singletons.set(serviceName, new ServiceClass());
+        const instance =
+          factory.prototype && factory.prototype.constructor === factory
+            ? new factory(...args)
+            : await factory(...args);
+
+        this.singletons.set(serviceName, instance);
       }
 
       return this.singletons.get(serviceName);
     }
 
-    return new ServiceClass();
+    return factory.prototype && factory.prototype.constructor === factory
+      ? new factory(...args)
+      : await factory(...args);
   }
 
   remove(serviceName) {
