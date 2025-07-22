@@ -32,4 +32,16 @@ export default class Container {
 
     return new ServiceClass();
   }
+
+  remove(serviceName) {
+    if (this.services.has(serviceName)) {
+      this.services.delete(serviceName);
+      this.singletons.delete(serviceName);
+    }
+  }
+
+  clear() {
+    this.services.clear();
+    this.singletons.clear();
+  }
 }

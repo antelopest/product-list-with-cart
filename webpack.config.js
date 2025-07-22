@@ -91,7 +91,7 @@ export default {
       '@container': path.resolve(__dirname, 'src/core/container'),
       '@sharedModule': path.resolve(__dirname, 'src/modules/shared'),
       '@orderModule': path.resolve(__dirname, 'src/modules/order'),
-      '@appDIContainer': path.resolve(__dirname, 'src/container')
+      '@appDIContainer': path.resolve(__dirname, 'src/container/container.js')
     }
   }
 };

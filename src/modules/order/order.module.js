@@ -1,6 +1,6 @@
-import Container from '@container/Container.js';
-
 import Module from '@module/Module.js';
+
+import { AppDIContainer } from '@appDIContainer';
 
 // import ProductsService from './services/products/products.service.js';
 import CartService from './services/cart/cart.service.js';
@@ -9,8 +9,6 @@ import CartService from './services/cart/cart.service.js';
 // import CartComponent from './components/cart/cart.component.js';
 // import ProductsComponent from './components/products/products.component.js';
 // import SvgLoaderComponent from '@orderModule/components/svg-loader/svg-loader.component.js';
-
-export const container = new Container();
 
 export const OrderModule = new Module({
   services: [
@@ -23,5 +21,5 @@ export const OrderModule = new Module({
     // [ProductsComponent.tag, ProductsComponent],
     // [CartComponent.tag, CartComponent]
   ],
-  container
+  AppDIContainer
 });
