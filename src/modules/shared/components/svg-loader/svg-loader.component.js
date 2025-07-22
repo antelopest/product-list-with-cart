@@ -22,8 +22,8 @@ export default class SvgIcon extends Component {
   constructor() {
     super();
 
-    this.addClasses();
+    // this.addClasses();
 
-    this.init();
+    // this.init();
   }
 }
