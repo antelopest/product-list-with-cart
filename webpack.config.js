@@ -89,7 +89,9 @@ export default {
       '@component': path.resolve(__dirname, 'src/core/component'),
       '@module': path.resolve(__dirname, 'src/core/module'),
       '@container': path.resolve(__dirname, 'src/core/container'),
-      '@orderModule': path.resolve(__dirname, 'src/modules/order')
+      '@sharedModule': path.resolve(__dirname, 'src/modules/shared'),
+      '@orderModule': path.resolve(__dirname, 'src/modules/order'),
+      '@appDIContainer': path.resolve(__dirname, 'src/container')
     }
   }
 };
