@@ -11,5 +11,7 @@ export default class SvgIconComponent extends Component {
 
   constructor() {
     super();
+
+    // const svg = ;
   }
 }

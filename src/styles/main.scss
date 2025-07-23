@@ -111,6 +111,7 @@
   padding: 1.5em 1.5rem;
   border-radius: 1rem;
   background-color: map.get($color, rose50);
+  margin: 1.5rem 0;
 
   &__header {
     &-title {
@@ -130,84 +131,47 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid map.get($color, rose100);
-  }
+    padding: 1.5rem 0;
 
-  .product {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid map.get($color, rose100);
-
-    &__info {
+    &-info {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    &__title {
+    &-title {
       font-weight: map.get($font, font-weight-600);
       font-size: 1.2rem;
     }
 
-    &__order {
+    &-total {
       display: flex;
       flex-direction: row;
       justify-content: start;
       align-items: center;
       gap: 1rem;
-    }
 
-    &__action {
-      button {
-        @include mixins.centring();
+      &-count {
+        color: map.get($color, red);
+        font-weight: map.get($font, font-weight-600);
+        font-size: 1.2rem;
+      }
 
-        outline: none;
-        border-radius: 50%;
-        background-color: map.get($color, rose50);
-        border: 2px solid map.get($color, rose300);
-        height: 30px;
-        width: 30px;
-        cursor: pointer;
+      &-price {
+        color: map.get($color, rose400);
+        font-weight: map.get($font, font-weight-400);
+        font-size: 1.2rem;
+      }
 
-        svg {
-          width: 15px;
-          height: 15px;
-        }
-
-        &:hover {
-          border: 2px solid map.get($color, rose500);
-
-          svg {
-            fill: map.get($color, rose500);
-          }
-
-          path {
-            fill: map.get($color, rose500);
-          }
-        }
+      &-sum {
+        color: map.get($color, rose500);
+        font-weight: map.get($font, font-weight-600);
+        font-size: 1.2rem;
       }
     }
 
-    &__count {
-      color: map.get($color, red);
-      font-weight: map.get($font, font-weight-600);
-      font-size: 1.2rem;
-    }
-
-    &__price {
-      color: map.get($color, rose300);
-      font-weight: map.get($font, font-weight-400);
-      font-size: 1.2rem;
-    }
-
-    &__total {
-      color: map.get($color, rose400);
-      font-weight: map.get($font, font-weight-600);
-      font-size: 1.2rem;
+    &-action {
     }
   }
 
@@ -231,10 +195,25 @@
     }
   }
 
+  &__features {
+    list-style: none;
+  }
+
+  &__feature {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem 0;
+    background-color: map.get($color, rose100);
+    border-radius: 1rem;
+  }
+
   &__action {
     padding: 1rem 0;
 
     &-confirm-button {
+      cursor: pointer;
       background-color: map.get($color, red);
       color: map.get($color, rose50);
       font-family: map.get($font, font-family), sans-serif;
