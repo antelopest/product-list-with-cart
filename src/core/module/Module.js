@@ -13,7 +13,7 @@ export default class Module {
     for (const [
       serviceName,
       ServiceClass,
-      options = { singletons: true }
+      options = { singleton: true }
     ] of this.services) {
       if (typeof serviceName !== 'string' || !serviceName) {
         throw new Error('Service name must be a non-empty string');
@@ -24,7 +24,7 @@ export default class Module {
       }
 
       this.container.register(serviceName, ServiceClass, {
-        singleton: options.singletons ?? true,
+        singleton: options.singleton ?? true,
         dependencies: options.dependencies ?? [],
         params: options.params ?? []
       });

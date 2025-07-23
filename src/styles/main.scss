@@ -20,37 +20,116 @@
   color: map.get($color, rose900);
 }
 
-.main {
+.main-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
 
-  @media (min-width: map.get($container, lg)) {
-    flex-direction: row;
+.menu {
+}
+
+.desserts {
+  &__title {
+    color: map.get($color, rose900);
+    font-size: 2rem;
+    font-weight: map.get($font, font-weight-700);
+    padding-top: 1.5rem;
+  }
+
+  &__items {
+    padding: 1.5rem 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
   }
 }
 
-.products {
-  .header__title {
-    padding: 1rem 0;
+.desserts__item {
+  &-image {
+    height: 300px;
+
+    img {
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-action {
+    position: relative;
+    top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+  }
+
+  &-add-button {
+    position: absolute;
+    height: 50px;
+    width: 180px;
+
+    border-radius: 2rem;
+    outline: none;
+    border: 1px solid map.get($color, rose400);
+    font-family: map.get($font, font-family), sans-serif;
+    color: map.get($color, rose900);
+    font-weight: map.get($font, font-weight-600);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  &-category {
+    color: map.get($color, rose500);
+    font-weight: map.get($font, font-weight-400);
+    font-size: 1rem;
+  }
+
+  &-title {
+    color: map.get($color, rose900);
+    font-weight: map.get($font, font-weight-700);
+    font-size: 1.2rem;
+  }
+
+  &-price {
+    color: map.get($color, red);
+    font-weight: map.get($font, font-weight-600);
+    font-size: 1.2rem;
   }
 }
 
 .cart {
-  padding: 1rem 0;
-  border-radius: 15px;
+  padding: 1.5em 1.5rem;
+  border-radius: 1rem;
   background-color: map.get($color, rose50);
 
-  .header {
-    padding: 1rem 1rem;
-    &__title {
+  &__header {
+    &-title {
       color: map.get($color, red);
+      font-size: 1.8rem;
+      font-weight: map.get($font, font-weight-700);
     }
   }
 
-  .order {
+  &__items {
+    list-style: none;
+  }
+
+  &__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid map.get($color, rose100);
   }
 
   .product {
@@ -132,31 +211,40 @@
     }
   }
 
-  .footer {
-    padding: 1rem 1rem;
+  &__total {
+    padding: 1rem 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
 
-    .footer__description {
+    &-description {
       font-size: 1rem;
       font-weight: map.get($font, font-weight-400);
       color: map.get($color, rose900);
     }
 
-    .footer__total {
+    &-sum {
       font-size: 1.8rem;
       font-weight: map.get($font, font-weight-700);
       color: map.get($color, rose900);
     }
   }
-}
 
-.svg-loader {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &__action {
+    padding: 1rem 0;
+
+    &-confirm-button {
+      background-color: map.get($color, red);
+      color: map.get($color, rose50);
+      font-family: map.get($font, font-family), sans-serif;
+      font-weight: map.get($font, font-weight-500);
+      padding: 1.2rem;
+      border-radius: 2rem;
+      outline: none;
+      border: none;
+      width: 100%;
+      font-size: 1.2rem;
+    }
+  }
 }

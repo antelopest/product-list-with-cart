@@ -29,7 +29,7 @@
               <li class="desserts__item">
                 <div class="desserts__item-image">
                   <img
-                    src="./assets/images/desserts/image-waffle-desktop.jpg"
+                    src="./assets/images/desserts/image-waffle-mobile.jpg"
                     alt="Waffle"
                   />
                 </div>
@@ -38,12 +38,17 @@
                     class="desserts__item-add-button"
                     aria-label="Add Waffle with Berries to cart"
                   >
+                    <svg-icon-component
+                      src="./assets/images/icons/icon-add-to-cart.svg"
+                    ></svg-icon-component>
                     Add to cart
                   </button>
                 </div>
-                <div class="desserts__item-category">Waffle</div>
-                <h3 class="desserts__item-title">Waffle with Berries</h3>
-                <div class="desserts__item-price">$6.50</div>
+                <div class="desserts__item-info">
+                  <div class="desserts__item-category">Waffle</div>
+                  <h3 class="desserts__item-title">Waffle with Berries</h3>
+                  <div class="desserts__item-price">$6.50</div>
+                </div>
               </li>
               <li class="desserts__item">
                 <div class="desserts__item-image">
@@ -57,12 +62,17 @@
                     class="desserts__item-add-button"
                     aria-label="Add Waffle with Berries to cart"
                   >
+                    <svg-icon-component
+                      src="./assets/images/icons/icon-add-to-cart.svg"
+                    ></svg-icon-component>
                     Add to cart
                   </button>
                 </div>
-                <div class="desserts__item-category">Waffle</div>
-                <h3 class="desserts__item-title">Waffle with Berries</h3>
-                <div class="desserts__item-price">$6.50</div>
+                <div class="desserts__item-info">
+                  <div class="desserts__item-category">Waffle</div>
+                  <h3 class="desserts__item-title">Waffle with Berries</h3>
+                  <div class="desserts__item-price">$6.50</div>
+                </div>
               </li>
             </ul>
           </div>
@@ -70,11 +80,11 @@
 
         <div class="cart">
           <div class="cart__header">
-            <h2 class="cart__header-title">Your cart</h2>
+            <h2 class="cart__header-title">Your cart (2)</h2>
           </div>
 
-          <div class="cart__items">
-            <div class="cart__item">
+          <ul class="cart__items">
+            <li class="cart__item">
               <div class="cart__item-info">
                 <div class="cart__item-title">Classic Tiramisu</div>
                 <div class="cart__item-total">
@@ -93,11 +103,34 @@
                   ></svg-loader-component>
                 </button>
               </div>
-            </div>
-          </div>
+            </li>
+            <li class="cart__item">
+              <div class="cart__item-info">
+                <div class="cart__item-title">Classic Tiramisu</div>
+                <div class="cart__item-total">
+                  <div class="cart__item-total-count">1х</div>
+                  <div class="cart__item-total-price">@ $5.50</div>
+                  <div class="cart__item-total-sum">$5.50</div>
+                </div>
+              </div>
+              <div class="cart__item-action">
+                <button
+                  class="cart__item-remove-button"
+                  aria-label="Remove Classic Tiramisu in cart"
+                >
+                  <svg-loader-component
+                    src="./assets/images/icons/icon-remove-item.svg"
+                  ></svg-loader-component>
+                </button>
+              </div>
+            </li>
+          </ul>
           <div class="cart__total">
             <div class="cart__total-description">Order Total</div>
-            <div class="cart__total-sum">$5.50</div>
+            <div class="cart__total-sum">$46.50</div>
+          </div>
+          <div class="cart__action">
+            <button class="cart__action-confirm-button">Confirm Order</button>
           </div>
         </div>
       </div>
